@@ -1,0 +1,52 @@
+function prompt_brouberol_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  # Get Git repository information.
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
+}
+
+function prompt_brouberol_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command.
+  add-zsh-hook precmd prompt_brouberol_precmd
+
+  # Set git-info parameters.
+  # See https://github.com/sorin-ionescu/prezto/tree/master/modules/git#theming
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:context:subcontext' format 'string'
+  zstyle ':prezto:module:git:info:ahead' format ':%B%F{yellow}⬆%f%b'
+  zstyle ':prezto:module:git:info:behind' format ':%B%F{yellow}⬇%f%b'
+  zstyle ':prezto:module:git:info:branch' format '%F{blue}%b%f'
+  zstyle ':prezto:module:git:info:commit' format '%F{green}%.7c%f'
+  zstyle ':prezto:module:git:info:dirty' format ':%B%F{red}±%f%b'
+  zstyle ':prezto:module:git:info:clean' format ':%B%F{green}✓%f%b'
+  # %b: branch name
+  # %c: commit hash
+  # %D: dirty?
+  # %C: clean?
+  # %A: ahead
+  # %B behind
+  zstyle ':prezto:module:git:info:keys' format 'prompt' ' (%b:%c%D%C%A%B) '
+
+  # Virtualenv indicator
+  zstyle ':prezto:module:python:info:virtualenv' format '[%F{yellow}%v%f] '
+
+  # Define prompts.
+  PROMPT='%B%F{red}λ%f%b %B%F{yellow}%c%f%b $git_info[prompt]'
+  RPROMPT='$python_info[virtualenv][%D{%L:%M:%S %p}]'
+}
+
+prompt_brouberol_setup "$@"
