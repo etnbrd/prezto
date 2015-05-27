@@ -16,3 +16,6 @@
 [submodule "modules/prompt/functions/pure"]
 	path = modules/prompt/external/pure
 	url = https://github.com/sindresorhus/pure.git
+[submodule "modules/scm_breeze/external"]
+	path = modules/scm_breeze/external
+	url = git@github.com:etnbrd/scm_breeze.git
