@@ -93,6 +93,24 @@ function prompt_sorin_precmd {
   _prompt_sorin_precmd_async_pid=$!
 }
 
+function prompt_etnbrd_git_status {
+
+  # $1 added
+  # $2 deleted
+  # $3 modified
+  # $4 renamed
+
+  if [[ -n $3 || -n $1 && -n $2 ]]; then
+    print $3
+  elif [[ -n $1 ]]; then
+    print $1
+  elif [[ -n $2 ]]; then
+    print $2
+  fi
+  return 1
+
+}
+
 function prompt_sorin_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
@@ -113,15 +131,15 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:git:info:added' format '%%B%F{2}+%f%%b'
   zstyle ':prezto:module:git:info:deleted' format '%%B%F{5}-%f%%b'
   zstyle ':prezto:module:git:info:modified' format '%%B%F{4}±%f%%b'
-  zstyle ':prezto:module:git:info:renamed' format '%%B%F{4}➜%f%%b'
-  zstyle ':prezto:module:git:info:ahead' format '%%B%F{13}⃗%f%%b'
-  zstyle ':prezto:module:git:info:behind' format '%%B%F{13}⃖%f%%b'
+  zstyle ':prezto:module:git:info:renamed' format '%%B%F{4}≡%f%%b'
+  zstyle ':prezto:module:git:info:ahead' format '⃕'
+  zstyle ':prezto:module:git:info:behind' format '⃔'
   zstyle ':prezto:module:git:info:branch' format '%F{6}%b%f'
   zstyle ':prezto:module:git:info:commit' format '%F{4}%.4c%f'
   zstyle ':prezto:module:git:info:position' format '%%B%F{1}%p%f%%b'
-  zstyle ':prezto:module:git:info:stashed' format '%%B%F{6}❄%f%%b'
-  zstyle ':prezto:module:git:info:unmerged' format '%%B%F{3}⚡%f%%b'
-  zstyle ':prezto:module:git:info:untracked' format '%%B%F{0}♺%f%%b'
+  zstyle ':prezto:module:git:info:stashed' format ' %%B%F{4}❄%f%%b'
+  zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{3}⚡%f%%b'
+  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{4}♺%f%%b'
   zstyle ':prezto:module:git:info:clean' format '%%B%F{2}•%f%%b'
   zstyle ':prezto:module:git:info:dirty' format '%%B%F{1}•%f%%b'
 
@@ -142,9 +160,9 @@ function prompt_sorin_setup {
   # unmerged    %U   Unmerged files count
   # untracked   %u   Untracked files count
 
-  zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}⟦%f%%b %b%C%D%c%s%A%B%S%a%d%m%r%U%u %%B%F{0}⟧%f%%b'
+  zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}⟦%f%%b %b%A%B%C%D%c $(prompt_etnbrd_git_status "%a" "%d" "%m")%r%S%U%u %%B%F{0}⟧%f%%b'
 
-  # Some interesting symbols ≈ ± ⚠ ♺ ⚡ ❄ ⚓ ✈ ⚛ ⚔ ✩ ☆ ★ ✂ ◈ ☀ ✉ ∞ ⬚ ⬡ ✲ ⚒ ⚙❖ ⟫ ⃗ ⃖ ⇡⇣
+  # Some interesting symbols ≈≃± ⚠ ♺ ⚡ ❄ ⚓ ✈ ⚛ ⚔ ✩ ☆ ★ ✂ ◈ ☀ ✉ ∞ ⬚ ⬡ ✲ ⚒ ⚙ ❖ ⟫ ⃗ ⃖ ⇡⇣ ⃪ ⃕ ⃔
 
   # TODO fix that
   # %v - Node.js version.
