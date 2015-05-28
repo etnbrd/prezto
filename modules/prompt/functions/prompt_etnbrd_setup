@@ -128,10 +128,10 @@ function prompt_sorin_setup {
   # See https://github.com/sorin-ionescu/prezto/tree/master/modules/git#theming
   zstyle ':prezto:module:git:info' verbose 'yes'
   zstyle ':prezto:module:git:info:action' format 'action %F{7}:%f%%B%F{9}%s%f%%b'
-  zstyle ':prezto:module:git:info:added' format '%%B%F{2}+%f%%b'
-  zstyle ':prezto:module:git:info:deleted' format '%%B%F{5}-%f%%b'
-  zstyle ':prezto:module:git:info:modified' format '%%B%F{4}±%f%%b'
-  zstyle ':prezto:module:git:info:renamed' format '%%B%F{4}≡%f%%b'
+  zstyle ':prezto:module:git:info:added' format ' %%B%F{2}+%f%%b'
+  zstyle ':prezto:module:git:info:deleted' format ' %%B%F{5}-%f%%b'
+  zstyle ':prezto:module:git:info:modified' format ' %%B%F{4}±%f%%b'
+  zstyle ':prezto:module:git:info:renamed' format ' %%B%F{4}≡%f%%b'
   zstyle ':prezto:module:git:info:ahead' format '⃕'
   zstyle ':prezto:module:git:info:behind' format '⃔'
   zstyle ':prezto:module:git:info:branch' format '%F{6}%b%f'
@@ -160,7 +160,7 @@ function prompt_sorin_setup {
   # unmerged    %U   Unmerged files count
   # untracked   %u   Untracked files count
 
-  zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}⟦%f%%b %b%A%B%C%D%c $(prompt_etnbrd_git_status "%a" "%d" "%m")%r%S%U%u %%B%F{0}⟧%f%%b'
+  zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}⟦%f%%b %b%A%B%C%D%c$(prompt_etnbrd_git_status "%a" "%d" "%m")%r%S%U%u %%B%F{0}⟧%f%%b'
 
   # Some interesting symbols ≈≃± ⚠ ♺ ⚡ ❄ ⚓ ✈ ⚛ ⚔ ✩ ☆ ★ ✂ ◈ ☀ ✉ ∞ ⬚ ⬡ ✲ ⚒ ⚙ ❖ ⟫ ⃗ ⃖ ⇡⇣ ⃪ ⃕ ⃔
 
