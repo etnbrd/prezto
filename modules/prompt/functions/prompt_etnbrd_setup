@@ -141,7 +141,7 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{3}⚡%f%%b'
   zstyle ':prezto:module:git:info:untracked' format ' %%B%F{4}♺%f%%b'
   zstyle ':prezto:module:git:info:clean' format '%%B%F{2}•%f%%b'
-  zstyle ':prezto:module:git:info:dirty' format '%B%F{1}•%f%b'
+  zstyle ':prezto:module:git:info:dirty' format '%F{1}•%f'
 
   # action      %s   Special action name
   # ahead       %A   Commits ahead of remote count
