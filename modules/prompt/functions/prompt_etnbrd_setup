@@ -135,7 +135,7 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:git:info:ahead' format '⃕'
   zstyle ':prezto:module:git:info:behind' format '⃔'
   zstyle ':prezto:module:git:info:branch' format '%F{2}%b%f'
-  zstyle ':prezto:module:git:info:commit' format '%F{4}%.4c%f'
+  zstyle ':prezto:module:git:info:commit' format '%F{4}%.3c%f'
   zstyle ':prezto:module:git:info:position' format '%%B%F{1}%p%f%%b'
   zstyle ':prezto:module:git:info:stashed' format ' %%B%F{4}❄%f%%b'
   zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{3}⚡%f%%b'
@@ -156,20 +156,20 @@ function prompt_sorin_setup {
   # clean       %C   Clean state
   # dirty       %D   Dirty files count
   # modified    %m   Modified files count
-  # renamed     %r   Renamed files count
+  # renamed     %r   Renamed files countq
   # unmerged    %U   Unmerged files count
   # untracked   %u   Untracked files count
 
   zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}⟦%f%%b %b%A%B%C%D%c$(prompt_etnbrd_git_status "%a" "%d" "%m")%r%S%U%u %%B%F{0}⟧%f%%b'
 
-  # Some interesting symbols ≈≃± ⚠ ♺ ⚡ ❄ ⚓ ✈ ⚛ ⚔ ✩ ☆ ★ ✂ ◈ ☀ ✉ ∞ ⬚ ⬡ ✲ ⚒ ⚙ ❖ ⟫❯❱ ❭ ⃗ ⃖ ⇡⇣ ⃪ ⃕ ⃔
+  # Some interesting symbols ⌘ ≈ ≃ ± ⚠ ♺ ⚡ ❄ ⚓ ✈ ⚛ ⚔ ✩ ☆ ★ ✂ ◈ ☀ ✉ ∞ ⬚ ⬡ ✲ ⚒ ⚙ ❖ ⟫❯❱ ❭ ⃗ ⃖ ⇡⇣ ⃪ ⃕ ⃔
 
   # TODO fix that
   # %v - Node.js version.
   zstyle ':prezto:module:node:info:version' format 'version:%v'
 
   # Define prompts.
-  PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.) %B%F{1}❱%F{3}❱%F{2}❱%f%b ${node_info[version]} '
+  PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.) %B%F{2}❭%F{7}❱%f%b ${node_info[version]} '
   RPROMPT=''
   SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
 }
