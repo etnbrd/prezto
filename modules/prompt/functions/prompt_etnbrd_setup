@@ -160,9 +160,9 @@ function prompt_etnbrd_setup {
   # unmerged    %U   Unmerged files count
   # untracked   %u   Untracked files count
 
-  zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}⟦%f%%b %b%A%B%C%D%c$(prompt_etnbrd_git_status "%a" "%d" "%m")%r%S%U%u %%B%F{0}⟧%f%%b'
+  zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}❲%f%%b %b%A%B%C%D%c$(prompt_etnbrd_git_status "%a" "%d" "%m")%r%S%U%u%%B%F{0}❳%f%%b'
 
-  # Some interesting symbols ⌘ ≈ ≃ ± ⚠ ♺ ⚡ ❄ ⚓ ✈ ⚛ ⚔ ✩ ☆ ★ ✂ ◈ ☀ ✉ ∞ ⬚ ⬡ ✲ ⚒ ⚙ ❖ ⟫❯❱ ❭ ⃗ ⃖ ⇡⇣ ⃪ ⃕ ⃔
+  # Some interesting symbols ⌘ ≈ ≃ ± ⚠ ♺ ⚡ ❄ ⚓ ✈ ⚛ ⚔ ✩ ☆ ★ ✂ ◈ ☀ ✉ ∞ ⬚ ⬡ ✲ ⚒ ⚙ ❖ ⟫❯❱ ❭ ⃗ ⃖ ⇡⇣ ⃪ ⃕ ⃔❲❳⟦⟧
 
   # TODO fix that
   # %v - Node.js version.
