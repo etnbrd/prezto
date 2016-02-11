@@ -100,15 +100,20 @@ function prompt_etnbrd_git_status {
   # $3 modified
   # $4 renamed
 
+  # If modified, or added and deleted
   if [[ -n $3 || -n $1 && -n $2 ]]; then
     print $3
+  # If added
   elif [[ -n $1 ]]; then
     print $1
+  # If deleted
   elif [[ -n $2 ]]; then
     print $2
+  #If renamed
+  elif [[ -n $4 ]]; then
+    print $4
   fi
   return 1
-
 }
 
 function prompt_etnbrd_setup {
@@ -156,11 +161,11 @@ function prompt_etnbrd_setup {
   # clean       %C   Clean state
   # dirty       %D   Dirty files count
   # modified    %m   Modified files count
-  # renamed     %r   Renamed files countq
+  # renamed     %r   Renamed files count
   # unmerged    %U   Unmerged files count
   # untracked   %u   Untracked files count
 
-  zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}❲%f%%b %b %C%D %A%B%c$(prompt_etnbrd_git_status "%a" "%d" "%m")%r%S%U%u%%B%F{0}❳%f%%b'
+  zstyle ':prezto:module:git:info:keys' format 'status' '%%B%F{0}❲%f%%b %b %C%D %A%B%c$(prompt_etnbrd_git_status "%a" "%d" "%m" "%r")%S%U%u%%B%F{0} ❳%f%%b'
 
   # Some interesting symbols ⌘ ≈ ≃ ± ⚠ ♺ ⚡ ❄ ⚓ ✈ ⚛ ⚔ ✩ ☆ ★ ✂ ◈ ❖ ☀ ✉ ∞ ⬚ ⬡ ✲ ⚒ ⚙  ⟫❯❱❭ ⃗ ⃖ ⇡⇣ ⃪ ⃕ ⃔❲❳⟦⟧
   # Ideographic space >　<
