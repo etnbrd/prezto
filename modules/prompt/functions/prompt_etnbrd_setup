@@ -185,7 +185,7 @@ function prompt_etnbrd_setup {
   if   [[ -f /.dockerenv ]]; then # Inside a docker container
     shell_type="%F{3}❭"
   elif [[ -n "$SSH_TTY" ]]; then # On a remote shell
-    shell_type="%F{4}❭"
+    shell_type="%F{5}❭"
   else
     shell_type="%F{2}❭"
   fi
