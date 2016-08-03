@@ -139,7 +139,7 @@ function prompt_etnbrd_setup {
   zstyle ':prezto:module:git:info:renamed' format ' %%B%F{4}≡%f%%b'
   zstyle ':prezto:module:git:info:ahead' format '͛'
   zstyle ':prezto:module:git:info:behind' format '⃔'
-  zstyle ':prezto:module:git:info:branch' format '%F{7}%b%f'
+  zstyle ':prezto:module:git:info:branch' format '%F{4} %F{7}%b%f'
   zstyle ':prezto:module:git:info:commit' format '%F{4}%.3c%f'
   zstyle ':prezto:module:git:info:position' format '%%B%F{1}%p%f%%b'
   zstyle ':prezto:module:git:info:stashed' format ' %%B%F{4}❄%f%%b'
